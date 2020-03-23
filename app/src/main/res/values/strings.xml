@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GithubRepoListing</string>
+
+    <!-- Home -->
+    <string name="home_fragment_title">Home</string>
+    <string name="username_hint">Username</string>
+    <string name="button_submit">Submit</string>
+    <string name="error_loading_data">An error occurred</string>
+
+    <!-- Detail -->
+    <string name="detail_fragment_stars">Stars: </string>
+    <string name="detail_fragment_issues">Open Issues: </string>
+    <string name="owner_name_placeholder">ownerName</string>
+    <string name="repo_stars_placeholder">repoStars</string>
+    <string name="repo_open_issues_placeholder">repoOpenIssues</string>
+    <string name="add_to_favorites">Add to or remove from favorites</string>
+</resources>

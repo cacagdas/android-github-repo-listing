@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="repo"
+            type="com.cacagdas.githubrepolisting.vo.Repo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detail.DetailFragment">
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:imageUrl="@{repo.owner.avatarUrl}"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="8dp"/>
+
+        <TextView
+            android:id="@+id/ownerName"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_toEndOf="@+id/userImage"
+            android:layout_toRightOf="@+id/userImage"
+            android:text="@{repo.owner.ownerName}" />
+
+        <LinearLayout
+            android:id="@+id/stars_layout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userImage">
+            <TextView
+                android:id="@+id/detail_stars"
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/detail_fragment_stars" />
+            <TextView
+                android:id="@+id/repoStars"
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="8dp"
+                android:text="@{String.valueOf(repo.stars)}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/issues_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/stars_layout">
+
+            <TextView
+                android:id="@+id/detail_open_issues"
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/detail_fragment_issues" />
+
+            <TextView
+                android:id="@+id/repoOpenIssues"
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{String.valueOf(repo.openIssues)}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/issues_layout"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:paddingLeft="24dp"
+                android:paddingStart="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="2"
+                android:text="@string/add_to_favorites"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:id="@+id/favoriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_star_white"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
