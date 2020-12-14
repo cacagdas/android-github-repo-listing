@@ -17,12 +17,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:paddingHorizontal="4dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="@string/username_hint">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usernameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="4dp"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:lines="1"
+                    android:maxLines="1"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <EditText
-                android:id="@+id/usernameEditText"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
                 android:paddingHorizontal="4dp"
+                android:maxLines="1"
                 android:hint="@string/username_hint"
                 android:layout_weight="3">
             </EditText>
@@ -34,6 +52,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:textAllCaps="false"
                 android:text="@string/button_submit">
             </Button>
 
