@@ -3,6 +3,7 @@ package com.cacagdas.githubrepolisting.ui.main
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.cacagdas.githubrepolisting.api.DataHolder
 import com.cacagdas.githubrepolisting.vo.Repo
 import com.cacagdas.githubrepolisting.db.RepoDb
 import com.cacagdas.githubrepolisting.api.RepoService
@@ -39,7 +40,7 @@ class ListViewModel(application: Application): BaseViewModel(application) {
     }
 
     private fun fetchFromRemote(username: String) {
-        reposLoading.value = true
+        processTraceLiveData.value = DataHolder.Loading
         disposable.add(
             repoService.getRepos(username)
                 .subscribeOn(Schedulers.newThread())
@@ -60,9 +61,7 @@ class ListViewModel(application: Application): BaseViewModel(application) {
     }
 
     private fun reposRetrieved(repoList: List<Repo>) {
-        reposLoadError.value = false
-        reposLoading.value = false
-        reposLiveData.value = repoList
+        processTraceLiveData.value = DataHolder.Success(repoList)
     }
 
     private fun storeReposLocally(list: List<Repo>) {

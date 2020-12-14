@@ -12,12 +12,8 @@ import com.cacagdas.githubrepolisting.MainActivity
 
 import com.cacagdas.githubrepolisting.R
 import com.cacagdas.githubrepolisting.databinding.FragmentDetailBinding
-import com.cacagdas.githubrepolisting.ui.main.RepoListAdapter
 import kotlinx.android.synthetic.main.fragment_detail.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class DetailFragment : Fragment() {
 
     private lateinit var viewModel: DetailViewModel
@@ -46,21 +42,14 @@ class DetailFragment : Fragment() {
         }
 
         (activity as MainActivity).supportActionBar?.title = repoName
+        (activity as MainActivity).supportActionBar?.setIcon(R.drawable.ic_star)
 
         viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
         viewModel.fetch(repoUuid)
         viewModel.checkIsRepoFaved(repoUuid)
 
-        observeViewModel()
+        observeLiveData()
 
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-    }
-
-    override fun onPause() {
-        super.onPause()
     }
 
     private fun setupButton() {
@@ -74,13 +63,13 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun observeViewModel() {
-        viewModel.repoLiveData.observe(this, Observer {repo ->
+    private fun observeLiveData() {
+        viewModel.repoLiveData.observe(viewLifecycleOwner, Observer {repo ->
             repo?.let {
                 dataBinding.repo = repo
             }
         })
-        viewModel.isFavorite.observe(this, Observer { it ->
+        viewModel.isFavorite.observe(viewLifecycleOwner, Observer { it ->
             it?.let {
                 isFaved = it
                 setupButton()
