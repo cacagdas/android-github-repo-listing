@@ -1,12 +1,37 @@
-# android-github-repo-listing
 
-Android Github Repo Listing Project in Kotlin language
-
-using MVVM architecture
-
-using Android Jetpack Components (Data Binding, LiveData, Navigation, Room, ViewModel)
-
-using 3rd party libraries (Retrofit 2 for networking, RxJava 2 for reactive programming, Glide for image loading, and Dagger 2 for DI operations)
+Android Github Repo Listing
+===========================================================
 
 You can find the .apk file at:
-https://github.com/cacagdas/android-github-repo-listing/releases/tag/v1.0
+https://github.com/cacagdas/android-github-repo-listing/releases/tag/v1.1
+
+Introduction
+-------------
+
+### Functionality
+The app is composed of 2 main screens.
+
+#### ListFragment
+Allows you to search users on Github.
+
+#### DetailFragment
+This fragment displays the details of a repository and its owner.
+
+### Building
+You can open the project in Android Studio and press run.
+
+### Libraries
+* [Android Support Library][support-lib]
+* [Android Architecture Components][arch]
+* [Android Data Binding][data-binding]
+* [Dagger 2][dagger2] for dependency injection
+* [Retrofit][retrofit] for REST api communication
+* [Glide][glide] for image loading
+
+
+[support-lib]: https://developer.android.com/topic/libraries/support-library/index.html
+[arch]: https://developer.android.com/arch
+[data-binding]: https://developer.android.com/topic/libraries/data-binding/index.html
+[dagger2]: https://google.github.io/dagger
+[retrofit]: http://square.github.io/retrofit
+[glide]: https://github.com/bumptech/glide
