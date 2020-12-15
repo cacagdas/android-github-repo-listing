@@ -1,11 +1,11 @@
 package com.cacagdas.githubrepolisting
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.cacagdas.githubrepolisting.R
+
 
 class MainActivity : AppCompatActivity() {
 

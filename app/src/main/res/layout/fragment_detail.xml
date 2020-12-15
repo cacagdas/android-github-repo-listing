@@ -106,11 +106,12 @@
                 android:text="@string/add_to_favorites"
                 tools:ignore="RtlSymmetry" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/favoriteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@color/colorAccent"
                 android:src="@drawable/ic_star_white"/>
         </LinearLayout>
 

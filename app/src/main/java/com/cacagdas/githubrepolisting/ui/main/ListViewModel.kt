@@ -16,6 +16,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
+import java.lang.Error
 import javax.inject.Inject
 
 class ListViewModel(application: Application): BaseViewModel(application) {
@@ -28,10 +29,6 @@ class ListViewModel(application: Application): BaseViewModel(application) {
     private val disposable = CompositeDisposable()
 
     private val dao = FavoriteDb(getApplication()).favoriteDao()
-
-    val reposLiveData = MutableLiveData<List<Repo>>()
-    val reposLoadError = MutableLiveData<Boolean>()
-    val reposLoading = MutableLiveData<Boolean>()
 
     val favedRepos = MutableLiveData<List<Favorite>>()
 
@@ -52,8 +49,7 @@ class ListViewModel(application: Application): BaseViewModel(application) {
                     }
 
                     override fun onError(e: Throwable) {
-                        reposLoading.value = false
-                        reposLoadError.value = true
+                        processTraceLiveData.value = DataHolder.Fail(Error(e))
                     }
 
                 })
